@@ -9,7 +9,7 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './Navbar.css';
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   state = {
     format: 'hex',
     open: false,
@@ -26,6 +26,7 @@ export default class Navbar extends Component {
 
   render() {
     const { level, changeLevel, showingAllColors } = this.props;
+
     const { format } = this.state;
     return (
       <header className="Navbar">
@@ -64,3 +65,5 @@ export default class Navbar extends Component {
     );
   }
 }
+
+export default Navbar;
