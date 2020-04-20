@@ -82,7 +82,7 @@ export default function PersistentDrawerLeft(props) {
   // const [background, setBackground] = React.useState(true);
   const [open, setOpen] = React.useState(false);
   const [currentColor, setCurrentColor] = React.useState('teal');
-  const [colors, setColors] = React.useState([]);
+  const [colors, setColors] = React.useState([{ color: 'blue', name: 'blue' }]);
   const [newColorName, setNewColorName] = React.useState('');
   const [newPaletteName, setNewPaletteName] = React.useState('');
 
@@ -133,6 +133,10 @@ export default function PersistentDrawerLeft(props) {
     };
     props.savePalette(newPalette);
     props.history.push('/');
+  };
+
+  const removeColor = (colorName) => {
+    setColors(colors.filter((color) => color.name !== colorName));
   };
 
   return (
@@ -229,7 +233,12 @@ export default function PersistentDrawerLeft(props) {
       >
         <div className={classes.drawerHeader} />
         {colors.map((color) => (
-          <DraggableColorBox color={color.color} name={color.name} />
+          <DraggableColorBox
+            key={color.name}
+            color={color.color}
+            name={color.name}
+            handleClick={() => removeColor(color.name)}
+          />
         ))}
       </main>
     </div>
