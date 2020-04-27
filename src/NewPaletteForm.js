@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import PaletteFormNav from './PaletteFormNav';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -96,11 +98,6 @@ export default function PersistentDrawerLeft(props) {
     ValidatorForm.addValidationRule('isColorUnique', (value) => {
       return colors.every(({ color }) => color !== currentColor);
     });
-    ValidatorForm.addValidationRule('isPaletteNameUnique', (value) => {
-      return props.palettes.every(
-        ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
-      );
-    });
   });
 
   const handleDrawerOpen = () => {
@@ -137,11 +134,10 @@ export default function PersistentDrawerLeft(props) {
     setColors([...colors, randomColor]);
   };
 
-  const handleSubmit = () => {
-    let newName = newPaletteName;
+  const handleSubmit = (paletteName) => {
     const newPalette = {
-      paletteName: newName,
-      id: newName.toLowerCase().replace(/\s/g, '-'),
+      paletteName: paletteName,
+      id: paletteName.toLowerCase().replace(/\s/g, '-'),
       colors: colors,
     };
     props.savePalette(newPalette);
@@ -158,43 +154,13 @@ export default function PersistentDrawerLeft(props) {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        color="default"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            Persistent drawer
-          </Typography>
-
-          <ValidatorForm onSubmit={handleSubmit}>
-            <TextValidator
-              label="Palette Name"
-              value={newPaletteName}
-              name="newPaletteName"
-              onChange={handleChange}
-              validators={['required', 'isPaletteNameUnique']}
-              errorMessages={['Enter Palette Name', 'Palette Name already taken']}
-            />
-            <Button variant="contained" color="primary" type="submit">
-              Save Palette
-            </Button>
-          </ValidatorForm>
-        </Toolbar>
-      </AppBar>
+      <PaletteFormNav
+        open={open}
+        classes={classes}
+        palettes={props.palettes}
+        handleSubmit={handleSubmit}
+        handleDrawerOpen={handleDrawerOpen}
+      />
       <Drawer
         className={classes.drawer}
         variant="persistent"
