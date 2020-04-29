@@ -103,12 +103,9 @@ export default function PersistentDrawerLeft(props) {
     setColors([...colors, randomColor]);
   };
 
-  const handleSubmit = (paletteName) => {
-    const newPalette = {
-      paletteName: paletteName,
-      id: paletteName.toLowerCase().replace(/\s/g, '-'),
-      colors: colors,
-    };
+  const handleSubmit = (newPalette) => {
+    newPalette.id = newPalette.paletteName.toLowerCase().replace(/\s/g, '-');
+    newPalette.colors = colors;
     props.savePalette(newPalette);
     props.history.push('/');
   };
