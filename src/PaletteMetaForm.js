@@ -24,7 +24,6 @@ class PaletteMetaForm extends Component {
   }
 
   handleChange = (evt) => {
-    // setNewName(evt.target.value);
     this.setState({
       [evt.target.name]: evt.target.value,
     });
@@ -40,6 +39,7 @@ class PaletteMetaForm extends Component {
       emoji: emoji.native,
     };
     this.props.handleSubmit(newPalette);
+    this.setState({ stage: '' });
   };
 
   render() {
