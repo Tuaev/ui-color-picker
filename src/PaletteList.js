@@ -13,8 +13,6 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles/PaletteListStyles';
 import { blue, red } from '@material-ui/core/colors/';
-// import blue from '@material-ui/core/colors/blue';
-// import red from '@material-ui/core/colors/red';
 
 class PaletteList extends Component {
   state = {
@@ -40,8 +38,8 @@ class PaletteList extends Component {
   };
 
   render() {
-    const { classes, palettes, deletePalette } = this.props;
-    const { openDeleteDialog, deletingId } = this.state;
+    const { classes, palettes } = this.props;
+    const { openDeleteDialog } = this.state;
 
     return (
       <div className={classes.root}>
@@ -55,8 +53,7 @@ class PaletteList extends Component {
               <CSSTransition key={palette.id} classNames="fade" timeout={500}>
                 <MiniPalette
                   {...palette}
-                  handleClick={() => this.goToPalette(palette.id)}
-                  // handleDelete={deletePalette}
+                  goToPalette={this.goToPalette}
                   openDialog={this.openDialog}
                   key={palette.id}
                   id={palette.id}
