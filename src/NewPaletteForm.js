@@ -11,11 +11,12 @@ import Button from '@material-ui/core/Button';
 import DraggableColorList from './DraggableColorList';
 import { arrayMove } from 'react-sortable-hoc';
 import useStyles from './styles/NewPaletteFormStyles';
+import seedColors from './seedColors';
 
 export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  const [colors, setColors] = React.useState(props.palettes[0].colors);
+  const [colors, setColors] = React.useState(seedColors[0].colors);
   const paletteIsFull = colors.length >= 20;
 
   const handleDrawerOpen = () => {
