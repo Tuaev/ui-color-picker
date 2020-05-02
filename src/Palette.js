@@ -3,7 +3,6 @@ import ColorBox from './ColorBox.js';
 import Navbar from './Navbar';
 import PaletteFooter from './PaletteFooter';
 import { withStyles } from '@material-ui/core/styles';
-// import './Palette.css';
 import styles from './styles/PaletteStyles';
 
 class Palette extends Component {

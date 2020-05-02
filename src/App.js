@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Palette from './Palette';
 import PaletteList from './PaletteList';
-import NewPaletteForm from './NewPaletteForm';
 import SingleColorPalette from './SingleColorPalette';
+import Page from './Page';
+import NewPaletteForm from './NewPaletteForm';
 import seedColors from './seedColors';
 import { generatePalette } from './colorHelpers.js';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import Page from './Page';
 
 const savedPalettes = JSON.parse(window.localStorage.getItem('palettes'));
 

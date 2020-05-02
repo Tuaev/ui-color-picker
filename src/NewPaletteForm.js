@@ -27,7 +27,6 @@ export default function PersistentDrawerLeft(props) {
   };
 
   const addNewColor = (newColor) => {
-    // const newColor = { color: currentColor, name: newColorName };
     setColors([...colors, newColor]);
   };
 

@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
-// import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles/PaletteNavFormStyles';
 
@@ -20,7 +19,6 @@ class PaletteNavForm extends Component {
   };
 
   handleChange = (evt) => {
-    // setNewName(evt.target.value);
     this.setState({
       [evt.target.name]: evt.target.value,
     });
@@ -34,7 +32,8 @@ class PaletteNavForm extends Component {
   };
 
   render() {
-    const { classes, open, palettes, handleSubmit } = this.props;
+    const { classes, open, palettes, handleSubmit, handleDrawerOpen } = this.props;
+    const { formShowing } = this.state;
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -49,7 +48,7 @@ class PaletteNavForm extends Component {
             <IconButton
               color="inherit"
               aria-label="open drawer"
-              onClick={this.props.handleDrawerOpen}
+              onClick={handleDrawerOpen}
               edge="start"
               className={clsx(classes.menuButton, {
                 [classes.hide]: open,
@@ -77,7 +76,7 @@ class PaletteNavForm extends Component {
             </Button>
           </div>
         </AppBar>
-        {this.state.formShowing && (
+        {formShowing && (
           <PaletteMetaFrom
             palettes={palettes}
             handleSubmit={handleSubmit}

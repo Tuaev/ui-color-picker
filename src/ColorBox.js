@@ -8,7 +8,6 @@ import { withStyles } from '@material-ui/core/styles';
 class ColorBox extends Component {
   state = { copied: false };
 
-  // Change copied state to true for 1.5s
   changeCopyState = () => {
     this.setState({ copied: true }, () => {
       setTimeout(() => this.setState({ copied: false }), 1500);
@@ -20,7 +19,6 @@ class ColorBox extends Component {
     const { copied } = this.state;
 
     return (
-      // Displays color and copys to clipboard on click.
       <CopyToClipboard text={background} onCopy={this.changeCopyState}>
         <div style={{ background }} className={classes.ColorBox}>
           <div

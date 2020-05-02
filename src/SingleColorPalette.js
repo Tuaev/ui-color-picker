@@ -18,7 +18,6 @@ class SingleColorPalette extends Component {
       shades = shades.concat(allColors[key].filter((color) => color.id === colorFilterBy));
     }
     return shades.slice(1);
-    //return all shades of given color
   };
 
   _shades = this.gatherShades(this.props.palette, this.props.colorId);
