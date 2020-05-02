@@ -43,8 +43,8 @@ export default {
       marginLeft: '-7px',
       marginTop: '-3px',
     },
-    [sizes.down('md')]: {
-      width: '200px',
+    [sizes.down('sm')]: {
+      width: '170px',
     },
   },
   selectContainer: {
