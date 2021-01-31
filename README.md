@@ -1,7 +1,14 @@
 # React - Color Picker App
 
-* React color picker based on [Flat UI Colors](https://flatuicolors.com/) and [Material UI Colors](http://materialuicolors.co/?utm_source=launchers)
-* Part of the final project from Colt Steeles React Bootcamp
+- React color picker based on [Flat UI Colors](https://flatuicolors.com/) and [Material UI Colors](http://materialuicolors.co/?utm_source=launchers)
+- Part of the final project from Colt Steeles React Bootcamp
+
+<p align="center">
+  <img style="max-width: 80%;"src="public/images/homepage.png">
+</p>
+<p align="center">
+  <img style="max-width: 80%;"src="public/images/createpage.png">
+</p>
 
 ### Tools used in this project
 
