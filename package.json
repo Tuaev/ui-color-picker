@@ -12,7 +12,7 @@
     "chroma-js": "^2.1.0",
     "emoji-mart": "^3.0.0",
     "install": "^0.13.0",
-    "npm": "^6.14.4",
+    "npm": "^11.9.0",
     "rc-slider": "^9.2.4",
     "react": "^16.13.1",
     "react-color": "^2.18.0",
@@ -20,7 +20,7 @@
     "react-dom": "^16.13.1",
     "react-material-ui-form-validator": "^2.0.10",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "react-sortable-hoc": "^1.11.0",
     "react-transition-group": "^4.3.0"
   },
